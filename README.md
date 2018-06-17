@@ -1,6 +1,7 @@
 # opsdroid skill shell
 
 A skill for [opsdroid](https://github.com/opsdroid/opsdroid) to respond to Please run messages.
+With this skill you will be able to run shell scripts from a specific folder you can configure. And the standard output and error messages will sent back to the chat.
 
 ## Requirements
 
@@ -10,10 +11,10 @@ None.
 
 You can configure:
 
-* scriptdir - where the skill will search for shell scripts
-* initialtalkbacktimeout - the timeout for sending the first stdout lines from the script back to the chat
-* talkbacktimeout - the maximum time the skill will wait until the gathered stdout lines are sent back to the chat
-* argumentumseparator - if the script is able to accept argumentums this will be the separator between the args
+* scriptdir - where the skill will search for shell scripts, default: *~/.opsdroid/modules/opsdroid-modules/skill/shell/script/*
+* initialtalkbacktimeout - the timeout in seconds for sending the first stdout lines from the script back to the chat, default: *5*
+* talkbacktimeout - the maximum time in seconds the skill will wait until the gathered stdout lines are sent back to the chat, default: *15*
+* argumentumseparator - if the script is able to accept argumentums this will be the separator between the args; default: *;*
 
 ## Usage
 
