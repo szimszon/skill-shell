@@ -17,7 +17,7 @@ You can configure:
 
 ## Usage
 
-Place a shell scipt like:
+Place a shell scipt like this:
 
 
 ```
@@ -25,7 +25,8 @@ Place a shell scipt like:
 ls . | grep -v "*.lib"
 ```
 
-In the *scriptdir* and then you can tell [opsdroid](https://github.com/opsdroid/opsdroid): **Please run ls**
+in the *scriptdir* and then you can tell [opsdroid](https://github.com/opsdroid/opsdroid): **Please run ls**
+
 [opsdroid](https://github.com/opsdroid/opsdroid) will run the script *ls* in the *scriptdir* and answer with
 the output of the script.
 
