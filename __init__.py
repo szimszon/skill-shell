@@ -1,4 +1,6 @@
+from opsdroid.skill import Skill
 from opsdroid.matchers import match_regex
+
 import logging
 import random
 import re
@@ -14,8 +16,9 @@ def setup(opsdroid):
 def get_code_text(text):
   return "<pre><code>"+text+"</code></pre>"
 
-@match_regex(r'Please run (?P<command>.*)$')
-async def do_something(opsdroid, config, message):
+class YourextipSkill(Skill):
+  @match_regex(r'Please run (?P<command>.*)$')
+  async def do_something(self, message):
     scriptdir=config.get("scriptdir","~/.opsdroid/modules/opsdroid-modules/skill/shell/script/")
     inittalkbacktimeout=config.get("initialtalkbacktimeout",5)
     talkbacktimeout=config.get("talkbacktimeout",15)
