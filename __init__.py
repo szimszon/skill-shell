@@ -10,9 +10,6 @@ import subprocess
 import os
 import aiohttp
 
-def setup(opsdroid):
-    logging.debug("Loaded shell module")
-
 def get_code_text(text):
   return "<pre><code>"+text+"</code></pre>"
 
