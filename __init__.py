@@ -16,10 +16,10 @@ def get_code_text(text):
 class YourextipSkill(Skill):
   @match_regex(r'Please run (?P<command>.*)$')
   async def do_something(self, message):
-    scriptdir=config.get("scriptdir","~/.opsdroid/modules/opsdroid-modules/skill/shell/script/")
-    inittalkbacktimeout=config.get("initialtalkbacktimeout",5)
-    talkbacktimeout=config.get("talkbacktimeout",15)
-    argsep=config.get("argumentumseparator",";")
+    scriptdir=self.config.get("scriptdir","~/.opsdroid/modules/opsdroid-modules/skill/shell/script/")
+    inittalkbacktimeout=self.config.get("initialtalkbacktimeout",5)
+    talkbacktimeout=self.config.get("talkbacktimeout",15)
+    argsep=self.config.get("argumentumseparator",";")
     msg=message.regex.group("command")
     if not msg:
       return True
