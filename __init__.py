@@ -49,7 +49,7 @@ class YourextipSkill(Skill):
       stdout="Starting the script named "+str(command)+" on "+str(datetime.datetime.now())+"...<br/>\nPlease be patient...<br/>\n"
       try:
         await message.respond(str(stdout))
-      except aiohttp.client_exceptions.ServerDisconnectedError:
+      except [aiohttp.client_exceptions.ServerDisconnectedError,aiohttp.client_exceptions.ClientOSError]:
         import traceback
         logging.error("Error while running script: "+str(traceback.format_exc()))
         time.sleep(3)
@@ -66,7 +66,7 @@ class YourextipSkill(Skill):
         if w<=datetime.datetime.now():
           try:
             await message.respond(get_code_text(str(stdout)))
-          except aiohttp.client_exceptions.ServerDisconnectedError:
+          except [aiohttp.client_exceptions.ServerDisconnectedError,aiohttp.client_exceptions.ClientOSError]:
             import traceback
             logging.error("Error while running script: "+str(traceback.format_exc()))
             time.sleep(3)
