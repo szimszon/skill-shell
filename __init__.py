@@ -63,7 +63,7 @@ class YourextipSkill(Skill):
       # ##################################################
       while ( res.poll() == None ):
         stdout+=res.stdout.readline()
-        if w<=datetime.datetime.now():
+        if w<=datetime.datetime.now() or len(stdout.encode())>60000:
           try:
             await message.respond(get_code_text(str(stdout)))
           except [aiohttp.client_exceptions.ServerDisconnectedError,aiohttp.client_exceptions.ClientOSError]:
@@ -75,7 +75,7 @@ class YourextipSkill(Skill):
             logging.error("== Recovered ==")
           w=datetime.datetime.now()+datetime.timedelta(seconds=talkbacktimeout)
           stdout=""
-        time.sleep(1)
+        time.sleep(0.5)
 
       (stdoutplus,stderrplus)=res.communicate()
       stdout+=str(stdoutplus)
